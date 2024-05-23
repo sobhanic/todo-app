@@ -6,14 +6,29 @@ import {
   Typography,
 } from "@mui/material";
 
-function TaskItem({ item }) {
+function TaskItem({ task, onDelete, onToggle }) {
   return (
     <li>
       <FormControlLabel
-        control={<Checkbox />}
-        label={<Typography sx={{ fontSize: 20 }}>task {item}</Typography>}
+        control={
+          <Checkbox value={task.checked} onChange={() => onToggle(task.id)} />
+        }
+        label={
+          <Typography
+            sx={{
+              fontSize: 20,
+              textDecoration: task.checked ? "line-through" : "none",
+            }}
+          >
+            {task.taskName}
+          </Typography>
+        }
       />
-      <IconButton aria-label='delete' color='error'>
+      <IconButton
+        aria-label='delete'
+        color='error'
+        onClick={() => onDelete(task.id)}
+      >
         <Delete />
       </IconButton>
     </li>

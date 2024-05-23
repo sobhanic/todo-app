@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
-import { ThemeContext } from "@emotion/react";
 
 const theme = createTheme({
   palette: {
@@ -15,6 +14,9 @@ const theme = createTheme({
     },
     error: {
       main: "#f44336",
+    },
+    yellow: {
+      main: "#FFCA3A",
     },
   },
   typography: {
